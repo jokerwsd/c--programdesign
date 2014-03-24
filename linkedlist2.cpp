@@ -29,7 +29,6 @@ class LinkedList
 	void listAdd(Elemtype data);
 	void listDelet(Elemtype data);
 	void listSearch(Elemtype data);
-	void listReverse();
 	void listDisplay();
 };
 
@@ -64,7 +63,7 @@ void LinkedList::listDelet(Elemtype data)
 	Node *temp1, *temp2;
 	if (head -> data == data)
 	{
-		temp2 = head;
+		temp1 = head;
 		head = temp2 -> next;
 		delete temp2;
 		return;
@@ -77,31 +76,19 @@ void LinkedList::listDelet(Elemtype data)
 	{
 		if(temp2 -> data== data)
 		{
-		temp1->next = temp2->next;
+			temp1->next = temp2->next;//Why???
+		}
 		delete temp2;
 		break;
-		}
 	
 	temp1 = temp2;
 	temp2 = temp2 -> next;}
 }
 
 
-void LinkedList::listReverse()
-{
-	Node *pend, *pstart;
-	Node *temp;
-	pend = head;
-	pstart = NULL;
-	while (pend != NULL)
-	{
-		temp = pend->next;
-		pend -> next = pstart;;
-		pstart = pend;
-		pend = temp;
-	}
-	head = pstart;
-}
+
+
+
 
 void LinkedList::listDisplay()
 {
@@ -115,7 +102,7 @@ void LinkedList::listDisplay()
 	cout <<"end of the list"<< endl;
 }
 
-LinkedList::~LinkedList()
+void ~LinkedList()
 {
 	//how to write a destructor ??
 }
@@ -129,13 +116,7 @@ int main()
 	a.listAdd(3);
 	a.listAdd(98);
 	a.listAdd(11);
-	a.listAdd(43);
-	a.listAdd(96);
-	a.listAdd(74);
-	a.listAdd(23);
-	a.listDelet(98);
-	a.listDisplay();
-	a.listReverse();
+	a.listAdd(22);
 	a.listDisplay();
 	return 0;
 }
