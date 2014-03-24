@@ -1,0 +1,79 @@
+/*my own linkedlist following this introduction:
+
+http://www.baumann.info/public/cpp_lernaufgabe_linked_list.pdf
+
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+/*single linkedlist data structure*/
+
+//template <typename T>
+typedef int Elemtype;
+typedef struct NodeType
+{
+	ElemType data;
+	NodeType *next;
+} Node;
+
+class LinkedList
+{
+	private:   
+	Node *head= NULL;   
+	public:
+	Linkedlist();//constructor
+	~Linkedlist();//distructor
+	void listAdd();
+	Elemtype listDelet();
+	void listSearch(Elemtype data);
+	void listDisplay();
+}
+
+LinkedList::listAdd()
+{
+	Node *temp *temp2;
+	temp = new Node;
+	cout << "Type the data you want to stroe in the linkedlist"<<endl;
+	cin >> temp -> data;
+	temp -> next = NULL;
+	if(head == NULL)
+	{
+		head = temp;
+	}
+	else
+	{
+		temp2 = head;
+		while(temp2->next != NULL)
+		{
+			temp2 = temp2 -> next;
+		}
+		temp2->next = temp;
+	}
+}
+
+LinkedList::listDelet(Elemtype &data)
+{
+
+}
+
+LinkedList::listDisplay()
+{
+	Node *temp;
+	temp = head;
+	while(temp != NULL)
+	{
+		cout << temp->data <<' ';
+		temp = temp -> next;
+	}
+	cout <<"end of the list"<< endl;
+}
+
+int main()
+{
+	Node* head = NULL;
+	return 0;
+}
+
