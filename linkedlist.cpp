@@ -117,7 +117,15 @@ void LinkedList::listDisplay()
 
 LinkedList::~LinkedList()
 {
-	//how to write a destructor ??
+	Node *temp;
+	temp = head;
+	while(temp != NULL)
+	{
+		head = head->next;
+		delete temp;
+		temp = head;
+	}
+	head = NULL;
 }
 
 
